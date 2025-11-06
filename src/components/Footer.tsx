@@ -1,151 +1,72 @@
 import { Link } from "react-router-dom";
-import { Facebook, Instagram } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Checkbox } from "@/components/ui/checkbox";
-import { useState } from "react";
-import { toast } from "sonner";
 
 const Footer = () => {
-  const [email, setEmail] = useState("");
-  const [subscribed, setSubscribed] = useState(false);
-
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email && subscribed) {
-      toast.success("Thank you for subscribing!");
-      setEmail("");
-      setSubscribed(false);
-    }
-  };
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
-    <footer id="contact" className="bg-card border-t border-border">
-      <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          {/* Contact Column */}
-          <div>
-            <h3 className="text-xl font-bold mb-6 tracking-wider">CONTACT</h3>
-            <div className="space-y-3 text-muted-foreground">
-              <p>123-456-7890</p>
-              <a href="mailto:info@mysite.com" className="hover:text-primary transition-colors block">
-                info@mysite.com
-              </a>
-              <div className="flex gap-4 mt-6">
-                <a href="#" className="hover:text-primary transition-colors">
-                  <Facebook size={20} />
-                </a>
-                <a href="#" className="hover:text-primary transition-colors">
-                  <Instagram size={20} />
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Newsletter Column */}
-          <div>
-            <h3 className="text-xl font-bold mb-6 tracking-wider">JOIN THE CLUB</h3>
-            <p className="text-muted-foreground mb-4">Get Updates on Special Events</p>
-            <form onSubmit={handleSubscribe} className="space-y-4">
-              <Input
-                type="email"
-                placeholder="Email*"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                className="bg-input border-border"
-              />
-              <div className="flex items-start gap-2">
-                <Checkbox
-                  id="newsletter"
-                  checked={subscribed}
-                  onCheckedChange={(checked) => setSubscribed(checked as boolean)}
-                />
-                <label htmlFor="newsletter" className="text-sm text-muted-foreground leading-tight">
-                  Yes, subscribe me to your newsletter.
-                </label>
-              </div>
-              <Button type="submit" className="w-full">
-                Subscribe
-              </Button>
-            </form>
-          </div>
-
-          {/* Opening Hours Column */}
-          <div>
-            <h3 className="text-xl font-bold mb-6 tracking-wider">OPENING HOURS</h3>
-            <div className="space-y-2 text-muted-foreground">
-              <p>Mon - Fri: 8am - 8pm</p>
-              <p>Saturday: 9am - 7pm</p>
-              <p>Sunday: 9am - 8pm</p>
-            </div>
-          </div>
-
-          {/* Address Column */}
-          <div>
-            <h3 className="text-xl font-bold mb-6 tracking-wider">ADDRESS</h3>
-            <address className="text-muted-foreground not-italic">
-              500 Terry Francine St.<br />
-              San Francisco, CA 94158
-            </address>
-          </div>
-        </div>
-
-        {/* Footer Navigation */}
-        <nav className="mt-12 pt-8 border-t border-border">
-          <ul className="flex flex-wrap justify-center gap-8 text-sm">
-            <li>
-              <button
-                onClick={() => scrollToSection("whats-on")}
-                className="hover:text-primary transition-colors"
-              >
-                What's On
-              </button>
-            </li>
-            <li>
-              <Link to="/menu" className="hover:text-primary transition-colors">
-                Menu
-              </Link>
-            </li>
-            <li>
-              <Link to="/reservations" className="hover:text-primary transition-colors">
-                Reserve a Table
-              </Link>
-            </li>
-            <li>
-              <button
-                onClick={() => scrollToSection("location")}
-                className="hover:text-primary transition-colors"
-              >
-                Location
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => scrollToSection("contact")}
-                className="hover:text-primary transition-colors"
-              >
-                Contact
-              </button>
-            </li>
-          </ul>
-        </nav>
-      </div>
-
-      {/* Copyright Bar */}
-      <div className="bg-background border-t border-border py-4">
-        <div className="container mx-auto px-4">
-          <p className="text-center text-sm text-muted-foreground">
-            © 2035 by Bar 121. Powered and secured by <a href="https://wix.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Wix</a>
+    <footer className="bg-card text-muted-foreground border-t border-border py-10 px-6">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-center sm:text-left">
+        {/* 1️⃣ Logo Section */}
+        <div className="flex flex-col items-center justify-center text-center w-full mb-8 sm:mb-0">
+          <img
+            src="/src/assets/logo.png"
+            alt="The White Hart Logo"
+            className="h-12 w-12 sm:h-14 sm:w-14 object-contain mb-2"
+          />
+          <p className="text-lg sm:text-xl font-semibold text-white tracking-wide">
+            THE WHITE HART
           </p>
         </div>
+
+        {/* 2️⃣ Contact Section */}
+        <div id="contact">
+          <h3 className="text-white font-semibold text-lg mb-3">Contact</h3>
+          <p className="text-sm mb-1 text-gray-300">123-456-7890</p>
+          <p className="text-sm mb-4 text-gray-300">info@whitehart.com</p>
+
+          <h3 className="text-white font-semibold text-lg mb-2">
+            Stay Connected
+          </h3>
+          <div className="flex justify-center sm:justify-start gap-4 mt-2 text-lg">
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              className="hover:text-primary"
+            >
+              <i className="fab fa-facebook-f"></i>
+            </a>
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              className="hover:text-primary"
+            >
+              <i className="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+
+        {/* 4️⃣ Opening Hours Section */}
+        <div>
+          <h3 className="text-white font-semibold text-lg mb-3">
+            Opening Hours
+          </h3>
+          <ul className="text-sm text-gray-300 space-y-1">
+            <li>Mon - Fri: 8am - 8pm</li>
+            <li>Saturday: 9am - 7pm</li>
+            <li>Sunday: 9am - 8pm</li>
+          </ul>
+
+          <p className="mt-4 text-sm text-gray-300 leading-relaxed">
+            Survey no 29, Sriram Chowk, 1/1A,
+            <br />
+            Pimpri-Chinchwad, Maharashtra 411057
+          </p>
+        </div>
+      </div>
+
+      {/* Copyright */}
+      <div className="text-center text-sm sm:text-base text-gray-500 mt-8 border-t border-border pt-5">
+        © {new Date().getFullYear()}{" "}
+        <span className="text-white font-medium">The White Hart</span>. All
+        rights reserved.
       </div>
     </footer>
   );

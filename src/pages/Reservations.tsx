@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { useState } from "react";
+import { useEffect } from "react";
 
 const Reservations = () => {
   const [formData, setFormData] = useState({
@@ -13,7 +14,7 @@ const Reservations = () => {
     phone: "",
     date: "",
     time: "",
-    guests: "2"
+    guests: "2",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -25,14 +26,29 @@ const Reservations = () => {
       phone: "",
       date: "",
       time: "",
-      guests: "2"
+      guests: "2",
     });
   };
 
+  useEffect(() => {
+    // Always scroll to top first (prevents being stuck mid-page)
+    window.scrollTo({ top: 0 });
+
+    // If a hash (like #booking-form) exists, smooth scroll to that element
+    const hash = window.location.hash;
+    if (hash) {
+      setTimeout(() => {
+        const element = document.querySelector(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 300);
+    }
+  }, []);
   return (
     <div className="min-h-screen">
       <Header />
-      
+
       <main className="pt-32 pb-24 min-h-screen">
         <div className="container mx-auto px-4 max-w-2xl">
           <h1 className="text-5xl md:text-6xl font-bold mb-8 tracking-wide text-center">
@@ -42,14 +58,19 @@ const Reservations = () => {
             Reserve your spot at The White Hart
           </p>
 
-          <form onSubmit={handleSubmit} className="space-y-6 bg-card p-8 rounded-lg border border-border">
+          <form
+            onSubmit={handleSubmit}
+            className="space-y-6 bg-card p-8 rounded-lg border border-border"
+          >
             <div>
               <Label htmlFor="name">Name*</Label>
               <Input
                 id="name"
                 type="text"
                 value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, name: e.target.value })
+                }
                 required
                 className="mt-2"
               />
@@ -61,7 +82,9 @@ const Reservations = () => {
                 id="email"
                 type="email"
                 value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, email: e.target.value })
+                }
                 required
                 className="mt-2"
               />
@@ -73,7 +96,9 @@ const Reservations = () => {
                 id="phone"
                 type="tel"
                 value={formData.phone}
-                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, phone: e.target.value })
+                }
                 required
                 className="mt-2"
               />
@@ -82,11 +107,23 @@ const Reservations = () => {
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <Label htmlFor="date">Date*</Label>
+
+                <style>
+                  {`
+      input[type="date"]::-webkit-calendar-picker-indicator {
+        filter: invert(1);
+        cursor: pointer;
+      }
+    `}
+                </style>
+
                 <Input
                   id="date"
                   type="date"
                   value={formData.date}
-                  onChange={(e) => setFormData({ ...formData, date: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, date: e.target.value })
+                  }
                   required
                   className="mt-2"
                 />
@@ -94,11 +131,23 @@ const Reservations = () => {
 
               <div>
                 <Label htmlFor="time">Time*</Label>
+                <style>
+                  {`
+      /* Fix for date and time picker icons on dark background */
+      input[type="date"]::-webkit-calendar-picker-indicator,
+      input[type="time"]::-webkit-calendar-picker-indicator {
+        filter: invert(1);
+        cursor: pointer;
+      }
+    `}
+                </style>
                 <Input
                   id="time"
                   type="time"
                   value={formData.time}
-                  onChange={(e) => setFormData({ ...formData, time: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, time: e.target.value })
+                  }
                   required
                   className="mt-2"
                 />
@@ -113,7 +162,9 @@ const Reservations = () => {
                 min="1"
                 max="20"
                 value={formData.guests}
-                onChange={(e) => setFormData({ ...formData, guests: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, guests: e.target.value })
+                }
                 required
                 className="mt-2"
               />
@@ -125,7 +176,6 @@ const Reservations = () => {
           </form>
         </div>
       </main>
-
       <Footer />
     </div>
   );
