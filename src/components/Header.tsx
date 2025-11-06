@@ -21,7 +21,9 @@ const Header = () => {
         <nav className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center gap-3">
             <img src={logo} alt="The White Hart Logo" className="h-12 w-12" />
-            <span className="text-sm font-semibold tracking-wider">BAR 121</span>
+            <span className="text-sm font-semibold tracking-wider">
+              THE WHITE HART
+            </span>
           </Link>
 
           <ul className="flex items-center gap-8">

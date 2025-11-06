@@ -19,21 +19,39 @@ const Index = () => {
       <Header />
 
       {/* Hero Section */}
-      <section 
+      <section
         className="relative h-screen flex items-center justify-center"
         style={{
           backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${heroBg})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed'
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundAttachment: "fixed",
         }}
       >
-        <div className="text-center z-10 space-y-8">
-          <h1 className="text-6xl md:text-7xl font-bold tracking-widest">THE WHITE HART</h1>
-          <img src={logo} alt="The White Hart" className="mx-auto h-48 w-48" />
-          <p className="text-xl md:text-2xl tracking-wide">500 Terry Francine St. San Francisco, CA 94158</p>
+        <div className="text-center z-10 flex flex-col items-center">
+          {/* Title */}
+          <h1 className="text-6xl md:text-7xl font-bold tracking-widest mt-10">
+            THE WHITE HART
+          </h1>
+
+          {/* Logo */}
+          <img
+            src={logo}
+            alt="The White Hart"
+            className="mx-auto h-96 w-96 mt-4 mb-1"
+          />
+
+          {/* Address */}
+          <p className="text-xl md:text-2xl tracking-wide mt-0 mb-6 leading-snug">
+            Survey no 29, Sriram Chowk, 1/1A, Pimpri-Chinchwad, Maharashtra
+            411057
+          </p>
+
+          {/* Button */}
           <Link to="/reservations">
-            <Button variant="hero" size="lg">Book a Table</Button>
+            <Button variant="hero" size="lg">
+              Book a Table
+            </Button>
           </Link>
         </div>
       </section>
@@ -41,10 +59,18 @@ const Index = () => {
       {/* About Section */}
       <section className="py-24 bg-card">
         <div className="container mx-auto px-4 max-w-4xl text-center">
-          <p className="text-sm tracking-widest text-muted-foreground mb-4">ABOUT</p>
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 tracking-wide">YOUR NEIGHBOURHOOD INSTITUTION</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-8 tracking-wide">
+            ABOUT
+          </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            I'm a paragraph. Click here to add your own text and edit me. It's easy. Just click "Edit Text" or double click me to add your own content and make changes to the font. I'm a great place for you to tell a story and let your users know a little more about you.
+            Welcome to The White Hart Club - where the night comes alive and
+            every moment tells a story. It’s not just a club, it’s a vibe - a
+            perfect fusion of rhythm, flavor, and style. Sip on signature
+            cocktails, move to electrifying beats, and lose yourself in an
+            atmosphere that’s effortlessly chic yet wildly alive. Whether it’s a
+            laid-back evening or an unforgettable night out, The White Hart Club
+            is where the city comes to unwind, connect, and celebrate life in
+            its finest form.
           </p>
         </div>
       </section>
@@ -52,21 +78,26 @@ const Index = () => {
       {/* What's On Section */}
       <section id="whats-on" className="py-24 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 tracking-wide">WHAT'S ON</h2>
-          
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 tracking-wide">
+            WHAT'S ON
+          </h2>
+
           <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {/* Happy Hour */}
             <article className="group">
               <div className="overflow-hidden rounded-lg mb-6">
-                <img 
-                  src={happyHour} 
-                  alt="Happy Hour Cocktails" 
+                <img
+                  src={happyHour}
+                  alt="Happy Hour Cocktails"
                   className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
-              <h3 className="text-3xl font-bold mb-4 tracking-wide">HAPPY HOUR</h3>
+              <h3 className="text-3xl font-bold mb-4 tracking-wide">
+                HAPPY HOUR
+              </h3>
               <p className="text-lg text-muted-foreground mb-6">
-                50% on all cocktails<br />
+                50% on all cocktails
+                <br />
                 Monday to Thursday, 3pm-6pm
               </p>
               <Link to="/reservations">
@@ -77,15 +108,18 @@ const Index = () => {
             {/* Friday Night Live */}
             <article className="group">
               <div className="overflow-hidden rounded-lg mb-6">
-                <img 
-                  src={liveMusic} 
-                  alt="Friday Night Live Music" 
+                <img
+                  src={liveMusic}
+                  alt="Friday Night Live Music"
                   className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
-              <h3 className="text-3xl font-bold mb-4 tracking-wide">FRIDAY NIGHT LIVE</h3>
+              <h3 className="text-3xl font-bold mb-4 tracking-wide">
+                FRIDAY NIGHT LIVE
+              </h3>
               <p className="text-lg text-muted-foreground mb-6">
-                Taylor Rees<br />
+                Taylor Rees
+                <br />
                 January 1st, 2035, 8pm
               </p>
               <Link to="/reservations">
@@ -102,17 +136,22 @@ const Index = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 tracking-wide">
             COME DOWN & GRAB A PINT
           </h2>
-          
+
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-6xl mx-auto">
-            {[gallery1, gallery2, gallery3, gallery4, gallery5, gallery6].map((img, idx) => (
-              <div key={idx} className="overflow-hidden rounded-lg aspect-square">
-                <img 
-                  src={img} 
-                  alt={`Gallery image ${idx + 1}`}
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                />
-              </div>
-            ))}
+            {[gallery1, gallery2, gallery3, gallery4, gallery5, gallery6].map(
+              (img, idx) => (
+                <div
+                  key={idx}
+                  className="overflow-hidden rounded-lg aspect-square"
+                >
+                  <img
+                    src={img}
+                    alt={`Gallery image ${idx + 1}`}
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                  />
+                </div>
+              )
+            )}
           </div>
         </div>
       </section>
@@ -120,9 +159,14 @@ const Index = () => {
       {/* Location Section */}
       <section id="location" className="py-24 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-8 tracking-wide">FIND US</h2>
-          <p className="text-center text-xl text-muted-foreground mb-12">500 Terry Francine St. San Francisco, CA 94158</p>
-          
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-8 tracking-wide">
+            FIND US
+          </h2>
+          <p className="text-center text-xl text-muted-foreground mb-12">
+            Survey no 29, Sriram Chowk, 1/1A, Pimpri-Chinchwad, Maharashtra
+            411057
+          </p>
+
           <div className="max-w-5xl mx-auto">
             <div className="rounded-lg overflow-hidden shadow-2xl">
               <iframe
@@ -137,10 +181,15 @@ const Index = () => {
               />
             </div>
             <div className="text-center mt-8">
-              <Button 
-                variant="hero" 
+              <Button
+                variant="hero"
                 size="lg"
-                onClick={() => window.open('https://www.google.com/maps/dir//500+Terry+Francine+St,+San+Francisco,+CA+94158', '_blank')}
+                onClick={() =>
+                  window.open(
+                    "https://www.google.com/maps/dir//500+Terry+Francine+St,+San+Francisco,+CA+94158",
+                    "_blank"
+                  )
+                }
               >
                 Get Directions
               </Button>
