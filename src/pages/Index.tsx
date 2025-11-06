@@ -117,6 +117,38 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Location Section */}
+      <section id="location" className="py-24 bg-background">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-8 tracking-wide">FIND US</h2>
+          <p className="text-center text-xl text-muted-foreground mb-12">500 Terry Francine St. San Francisco, CA 94158</p>
+          
+          <div className="max-w-5xl mx-auto">
+            <div className="rounded-lg overflow-hidden shadow-2xl">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.835434509374!2d-122.41941508468197!3d37.77492997975903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809c6c8f4459%3A0xb10ed6d9b5050fa5!2sSan%20Francisco%2C%20CA%2094158!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+                width="100%"
+                height="450"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="The White Hart Location"
+              />
+            </div>
+            <div className="text-center mt-8">
+              <Button 
+                variant="hero" 
+                size="lg"
+                onClick={() => window.open('https://www.google.com/maps/dir//500+Terry+Francine+St,+San+Francisco,+CA+94158', '_blank')}
+              >
+                Get Directions
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </div>
   );

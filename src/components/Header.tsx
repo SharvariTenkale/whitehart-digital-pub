@@ -51,6 +51,14 @@ const Header = () => {
             </li>
             <li>
               <button
+                onClick={() => scrollToSection("location")}
+                className="text-sm font-medium tracking-wide hover:text-primary transition-colors"
+              >
+                Location
+              </button>
+            </li>
+            <li>
+              <button
                 onClick={() => scrollToSection("contact")}
                 className="text-sm font-medium tracking-wide hover:text-primary transition-colors"
               >
