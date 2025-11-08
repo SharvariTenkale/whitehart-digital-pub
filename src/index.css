@@ -67,3 +67,11 @@ All colors MUST be HSL.
   animation: bounceIn 0.6s ease-out;
 }
 
+@keyframes scrollHint {
+  0%, 100% { transform: translate(0, -50%); }
+  50% { transform: translate(-6px, -50%); }
+}
+
+.animate-scrollHint {
+  animation: scrollHint 1.5s infinite ease-in-out;
+}

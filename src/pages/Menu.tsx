@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import menuBanner from "@/assets/menu-banner.jpg";
 import menuSideImage from "@/assets/menu-side-image.jpg";
 
@@ -27,21 +27,156 @@ import jaegerbomb from "@/assets/cocktails/jaegerbomb.jpg";
 import pinacolada from "@/assets/cocktails/Pinacolada .jpg";
 import breezers from "@/assets/cocktails/breezers .jpg";
 
-import cranberryTwister from "@/assets/cranberry-twister.jpg";
-import houseFries from "@/assets/house-fries.jpg";
-import garlicBread from "@/assets/garlic-bread.jpg";
-import murghDumKabab from "@/assets/murgh-dum-kabab.jpg";
-import tandooriPrawn from "@/assets/tandoori-prawn.jpg";
-import paneerChilly from "@/assets/paneer-chilly.jpg";
-import chickenChilly from "@/assets/chicken-chilly.jpg";
-import margaritaPizza from "@/assets/margarita-pizza.jpg";
+//mocktail images
+import PeachBlossom from "@/assets/mocktails/peach-blossom.jpg";
+import GreenAppleMojito from "@/assets/mocktails/green-apple-mojito.jpg";
+import MintyMango from "@/assets/mocktails/minty-mango.jpg";
+import VirginMojito from "@/assets/mocktails/virgin-mojito.jpg";
+import Cinderella from "@/assets/mocktails/cinderella.jpg";
+import BlueLagoonMocktail from "@/assets/mocktails/blue-lagoon.jpg";
+import Sunrise from "@/assets/mocktails/sunrise.jpg";
+import RedDevil from "@/assets/mocktails/red-devil.jpg";
+import FruitPunch from "@/assets/mocktails/fruit-punch.jpg";
+import ChocolateMilkshake from "@/assets/mocktails/chocolate-milkshake.png";
+import ColdCoffee from "@/assets/mocktails/cold-coffee.jpg";
+import VirginPinaColada from "@/assets/mocktails/virgin-pina-colada.jpg";
+
+//shooters
+import Kamikaze from "@/assets/shooters/kamikaze .png";
+import B52 from "@/assets/shooters/b-52.png";
+import Jagerbomb from "@/assets/shooters/jaegerbomb.jpg";
+import BrainHemorrhage from "@/assets/shooters/brain-hemorage.png";
+import LemonDrop from "@/assets/shooters/lemon-drop.png";
+import SlipperyNipple from "@/assets/shooters/slippery-nipple.png";
+import BabyGuinness from "@/assets/shooters/baby-guiness.png";
+import Fireball from "@/assets/shooters/fireball.png";
+import BlowJob from "@/assets/shooters/blowjob.png";
+import TequilaSlammer from "@/assets/shooters/tequila-slammer.png";
+
+//finger food
+import MasalaPapad from "@/assets/finger-food/masala-papad.jpg";
+import RoastedPapad from "@/assets/finger-food/roasted-papad.jpg";
+import FryPapad from "@/assets/finger-food/fry-papad.jpg";
+import FrenchFries from "@/assets/finger-food/french-fries.jpg";
+import PeriPeriFrenchFries from "@/assets/finger-food/peri-peri-french-fries.jpg";
+import GarlicBread from "@/assets/finger-food/garlic-bread.jpg";
+import GarlicBreadWithCheese from "@/assets/finger-food/garlic-bread-with-cheese.jpg";
+import ManchowSoupVeg from "@/assets/finger-food/manchow-soup-veg.jpg";
+import ManchowSoupNonVeg from "@/assets/finger-food/manchow-soup-non-veg.jpg";
+import ExoticVegetableSoup from "@/assets/finger-food/exotic-vegetable-soup-with-fried-noodles (2).jpg";
+import WatermelonGreekSalad from "@/assets/finger-food/watermelon-greek-salad.jpg";
+import OrangeAndWalnutSalad from "@/assets/finger-food/orange-and-walnut-salad.jpg";
+import RomainAndChickenSalad from "@/assets/finger-food/romain-and-chicken-salad.jpg";
+import IndianGreenSalad from "@/assets/finger-food/indian-green-salad.jpg";
+//tandoor images
+import VegPlatter from "@/assets/Tandoor Appetizers/veg-platter.jpg";
+import PeriPeriPaneerTikka from "@/assets/Tandoor Appetizers/peri-peri-paneer-tikka.jpg";
+import PaneerMalaiTikka from "@/assets/Tandoor Appetizers/paneer-malai-tikka.jpg";
+import VegetableAlmondSeekh from "@/assets/Tandoor Appetizers/vegetable-almond-seekh.jpg";
+import KumbhKiNazakat from "@/assets/Tandoor Appetizers/kumbh-ki-nazakat.jpg";
+import PaneerTikka from "@/assets/Tandoor Appetizers/paneer-tikka.jpg";
+import PaneerZafranTikka from "@/assets/Tandoor Appetizers/paneer-zafran-tikka.jpg";
+import HaraBharaKabab from "@/assets/Tandoor Appetizers/hara-bhara-kabab.jpg";
+import MurghDumKabab from "@/assets/Tandoor Appetizers/murgh-dum-kabab.jpg";
+import MurghPlatter from "@/assets/Tandoor Appetizers/murgh-platter.jpg";
+import MurghTandooriHalf from "@/assets/Tandoor Appetizers/murgh-tandoori-half.jpg";
+import MurghTandooriFull from "@/assets/Tandoor Appetizers/murgh-tandoori-full.jpg";
+//continental & oriental images
+import ChickenAkitri from "@/assets/Continental_&_Oriental_Appetizers/chicken-akitri.jpg";
+import LemonBasilChicken from "@/assets/Continental_&_Oriental_Appetizers/lemon-basil-chicken.jpg";
+import ChickenBlackPepper from "@/assets/Continental_&_Oriental_Appetizers/chicken-black-pepper.jpg";
+import FishFinger from "@/assets/Continental_&_Oriental_Appetizers/fish-finger.jpg";
+import ChimichurriChickenWings from "@/assets/Continental_&_Oriental_Appetizers/chimichurri-chicken-wings.jpg";
+import ThaiSpringRoll from "@/assets/Continental_&_Oriental_Appetizers/thai-spring-roll.jpg";
+import PaneerChilly from "@/assets/Continental_&_Oriental_Appetizers/paneer-chilly.jpg";
+import VegManchurianDry from "@/assets/Continental_&_Oriental_Appetizers/veg-manchurian-dry.jpg";
+import TeriyakiMushroom from "@/assets/Continental_&_Oriental_Appetizers/teriyaki-mushroom.jpg";
+import HoneyChilliPotato from "@/assets/Continental_&_Oriental_Appetizers/honey-chilli-potato.jpg";
+
+//food images
 import sizzlingBrownie from "@/assets/sizzling-brownie.jpg";
+
+// Add this new sub-component for category navigation
+const categories = [
+  "Cocktails",
+  "Mocktails",
+  "Shooters",
+  "Finger Food",
+  "Tandoor",
+  "Continental & Oriental",
+  "Pizza & Noodles",
+  "Main Course",
+  "Biryani & Rice",
+  "Desserts",
+];
+
+const CategoryNavigation = () => {
+  const [showArrow, setShowArrow] = useState(true);
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const container = scrollRef.current;
+    if (!container) return;
+
+    const handleScroll = () => {
+      const atEnd =
+        container.scrollLeft + container.clientWidth >=
+        container.scrollWidth - 10;
+
+      setShowArrow(!atEnd);
+    };
+
+    container.addEventListener("scroll", handleScroll);
+    return () => container.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <div className="sticky top-20 bg-background/95 backdrop-blur-md z-40 shadow-md py-3">
+      <div className="relative">
+        {/* gradient fade edges */}
+        <div className="absolute left-0 top-0 h-full w-8 bg-gradient-to-r from-background to-transparent pointer-events-none" />
+        <div className="absolute right-0 top-0 h-full w-8 bg-gradient-to-l from-background to-transparent pointer-events-none" />
+
+        {/* scrollable list */}
+        <div
+          ref={scrollRef}
+          className="flex gap-4 sm:gap-6 px-4 sm:px-8 text-sm sm:text-base font-medium overflow-x-auto scrollbar-hide whitespace-nowrap scroll-smooth snap-x"
+        >
+          {categories.map((category) => (
+            <button
+              key={category}
+              onClick={() => {
+                const section = document.getElementById(
+                  category.toLowerCase().replace(/\s+/g, "-")
+                );
+                if (section) {
+                  section.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
+              className="px-3 py-1 sm:px-4 sm:py-2 rounded-md flex-shrink-0 snap-center hover:text-primary transition-colors duration-300"
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+
+        {/* animated scroll hint for mobile */}
+        {showArrow && (
+          <div className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 text-lg sm:hidden animate-scrollHint pointer-events-none transition-opacity duration-500">
+            →
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
 
 interface MenuItem {
   name: string;
   description?: string;
   price?: string;
   image?: string;
+  type?: "veg" | "non-veg";
 }
 
 interface MenuCategory {
@@ -51,50 +186,19 @@ interface MenuCategory {
 }
 
 const Menu = () => {
-  // Scroll to top (and handle hash navigation, if any)
+  // Scroll to top and handle hash navigation
   useEffect(() => {
-    window.scrollTo({ top: 0 }); // always reset scroll position
-
+    window.scrollTo({ top: 0 });
     const hash = window.location.hash;
     if (hash) {
       setTimeout(() => {
         const element = document.querySelector(hash);
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
-        }
+        if (element) element.scrollIntoView({ behavior: "smooth" });
       }, 300);
     }
   }, []);
 
   const menuCategories: MenuCategory[] = [
-    {
-      title: "WHITE HART SIGNATURES",
-      description:
-        "Distinctive cocktails crafted with premium spirits and fresh flavors—The White Hart's own creations for memorable moments.",
-      items: [
-        {
-          name: "APPLETINI",
-          description:
-            "A vibrant blend of Smirnoff Green Apple, apple syrup, and lime juice for a crisp, refreshing finish.",
-          price: "₹9.99",
-          image: appletini,
-        },
-        {
-          name: "Whisky Sour",
-          description:
-            "The classic concoction that balances whisky with zesty lemon and a hint of sweetness.",
-          price: "₹9.99",
-          image: whiskySour,
-        },
-        {
-          name: "Tequila Sunrise",
-          description:
-            "Sunny layers of tequila, orange juice, and grenadine create a beautiful gradient in your glass.",
-          price: "₹9.99",
-          image: tequilaSunrise,
-        },
-      ],
-    },
     //COCKTAILS
     {
       title: "COCKTAILS",
@@ -229,87 +333,1047 @@ const Menu = () => {
         },
       ],
     },
-
+    //MOCKTAILS
+    {
+      title: "MOCKTAILS",
+      description:
+        "Refreshing handcrafted blends bursting with fruity flavors and a tropical twist — perfect for those who love vibrance without the spirits.",
+      items: [
+        {
+          name: "Peach Blossom",
+          description:
+            "A smooth blend of juicy peach syrup and lime soda — light, floral, and refreshingly elegant.",
+          price: "₹245",
+          image: PeachBlossom,
+        },
+        {
+          name: "Green Apple Mojito",
+          description:
+            "Crisp green apple stirred with mint, lime, and soda — zesty, sparkling, and full of flavor.",
+          price: "₹245",
+          image: GreenAppleMojito,
+        },
+        {
+          name: "Minty Mango",
+          description:
+            "Tropical mango infused with cool mint — sweet, vibrant, and perfectly chilled.",
+          price: "₹245",
+          image: MintyMango,
+        },
+        {
+          name: "Virgin Mojito",
+          description:
+            "A refreshing mix of mint, lime, and soda — fizzy, fresh, and timelessly cool.",
+          price: "₹245",
+          image: VirginMojito,
+        },
+        {
+          name: "Cinderella",
+          description:
+            "Orange, pineapple, and grenadine unite in a fruity, golden delight fit for royalty.",
+          price: "₹245",
+          image: Cinderella,
+        },
+        {
+          name: "Blue Lagoon",
+          description:
+            "Blue curacao syrup with lemonade and lime — bright, tangy, and ocean-breeze cool.",
+          price: "₹245",
+          image: BlueLagoonMocktail,
+        },
+        {
+          name: "Sunrise",
+          description:
+            "A radiant blend of orange juice and grenadine — sweet, citrusy, and sunrise-gorgeous.",
+          price: "₹245",
+          image: Sunrise,
+        },
+        {
+          name: "Red Devil",
+          description:
+            "Cranberry and lime come together in a bold red burst of flavor — sweet, sharp, and daring.",
+          price: "₹245",
+          image: RedDevil,
+        },
+        {
+          name: "Fruit Punch",
+          description:
+            "A tropical medley of mixed fruit juices — juicy, colorful, and crowd-pleasing.",
+          price: "₹245",
+          image: FruitPunch,
+        },
+        {
+          name: "Chocolate Milkshake",
+          description:
+            "Thick, rich, and creamy — a chocolate lover’s dream in every sip.",
+          price: "₹245",
+          image: ChocolateMilkshake,
+        },
+        {
+          name: "Cold Coffee",
+          description:
+            "Silky, strong, and ice-cold — the ultimate caffeine chill to keep you refreshed.",
+          price: "₹245",
+          image: ColdCoffee,
+        },
+        {
+          name: "Virgin Pina Colada",
+          description:
+            "Creamy coconut and pineapple bliss — smooth, tropical, and pure paradise in a glass.",
+          price: "₹245",
+          image: VirginPinaColada,
+        },
+      ],
+    },
+    //SHOOTERS
+    {
+      title: "SHOOTERS",
+      description:
+        "Quick, bold, and full of character — our shooters pack a punch with every shot. Perfect for starting the night or turning up the energy.",
+      items: [
+        {
+          name: "Kamikaze",
+          description:
+            "A sharp mix of vodka, triple sec, and lime — clean, crisp, and straight to the point.",
+          price: "₹395",
+          image: Kamikaze,
+        },
+        {
+          name: "B-52",
+          description:
+            "Layered perfection — Kahlua, Baileys, and triple sec stacked smooth and creamy.",
+          price: "₹395",
+          image: B52,
+        },
+        {
+          name: "Jägerbomb",
+          description:
+            "A high-voltage shot — Jägermeister dropped in energy drink for an instant rush.",
+          price: "₹395",
+          image: Jagerbomb,
+        },
+        {
+          name: "Brain Hemorrhage",
+          description:
+            "Baileys, peach schnapps, and grenadine — spooky, sweet, and visually wicked.",
+          price: "₹395",
+          image: BrainHemorrhage,
+        },
+        {
+          name: "Lemon Drop",
+          description:
+            "Vodka with lemon juice and sugar rim — bright, tangy, and refreshingly bold.",
+          price: "₹395",
+          image: LemonDrop,
+        },
+        {
+          name: "Slippery Nipple",
+          description:
+            "Smooth sambuca topped with Baileys — cheeky, creamy, and deliciously daring.",
+          price: "₹395",
+          image: SlipperyNipple,
+        },
+        {
+          name: "Baby Guinness",
+          description:
+            "Kahlua and Baileys layered to look like a mini pint — smooth, sweet, and shot-sized fun.",
+          price: "₹395",
+          image: BabyGuinness,
+        },
+        {
+          name: "Fireball",
+          description:
+            "Cinnamon whisky served straight — hot, spicy, and full of kick.",
+          price: "₹395",
+          image: Fireball,
+        },
+        {
+          name: "Blow Job",
+          description:
+            "Baileys and Kahlua topped with whipped cream — fun, bold, and guaranteed to turn heads.",
+          price: "₹395",
+          image: BlowJob,
+        },
+        {
+          name: "Tequila Slammer",
+          description:
+            "Tequila with a splash of soda — slam it, feel the fizz, and let the party begin.",
+          price: "₹395",
+          image: TequilaSlammer,
+        },
+      ],
+    },
+    //FINGER FOOD
     {
       title: "FINGER FOOD",
       description:
-        "I'm a description. Click me and 'Edit Menu' to open the Restaurant Menu editor and change my text.",
+        "Delightful quick bites, crispy and flavorful — perfect for sharing or pairing with your favorite drink.",
       items: [
         {
-          name: "House Fries",
+          name: "Masala Papad",
           description:
-            "I'm a dish description. Click 'Edit Menu' to open the Restaurant Menu editor and change my text.",
-          price: "₹9.99",
-          image: houseFries,
+            "Crisp papad topped with tangy masala and fresh veggies — a crunchy, spicy starter.",
+          price: "₹49",
+          image: MasalaPapad,
         },
         {
-          name: "Nachos and Guacamole",
+          name: "Roasted Papad",
           description:
-            "I'm a dish description. Click 'Edit Menu' to open the Restaurant Menu editor and change my text.",
-          price: "₹9.99",
+            "Light, crisp, and perfectly roasted for that traditional touch.",
+          price: "₹39",
+          image: RoastedPapad,
+        },
+        {
+          name: "Fry Papad",
+          description:
+            "Golden and crunchy — the simplest yet most satisfying munch.",
+          price: "₹39",
+          image: FryPapad,
+        },
+        {
+          name: "French Fries",
+          description:
+            "Classic golden fries — crisp on the outside, soft inside, always a favorite.",
+          price: "₹149",
+          image: FrenchFries,
+        },
+        {
+          name: "Peri-Peri French Fries",
+          description:
+            "Tossed in zesty peri-peri seasoning for that bold, spicy kick.",
+          price: "₹189",
+          image: PeriPeriFrenchFries,
+        },
+        {
+          name: "Garlic Bread",
+          description:
+            "Freshly baked with rich garlic butter — simple, aromatic, and irresistible.",
+          price: "₹189",
+          image: GarlicBread,
+        },
+        {
+          name: "Garlic Bread with Cheese",
+          description:
+            "The ultimate comfort snack — gooey cheese melted over warm, garlicky bread.",
+          price: "₹199",
+          image: GarlicBreadWithCheese,
+        },
+        {
+          name: "Manchow Soup (Veg)",
+          description:
+            "A hearty Indo-Chinese favorite — spicy, savory, and packed with flavor.",
+          price: "₹169",
+          image: ManchowSoupVeg,
+        },
+        {
+          name: "Manchow Soup (Non-Veg)",
+          description:
+            "Rich chicken broth with veggies and Asian spices — comfort in a bowl.",
+          price: "₹169",
+          image: ManchowSoupNonVeg,
+          type: "non-veg",
+        },
+        {
+          name: "Exotic Vegetable Soup with Fried Noodles",
+          description:
+            "A wholesome mix of exotic veggies topped with crispy noodles — fresh and flavorful.",
+          price: "₹169",
+          image: ExoticVegetableSoup,
+        },
+        {
+          name: "Watermelon Greek Salad",
+          description:
+            "Juicy watermelon cubes, feta, and greens — refreshing, sweet, and tangy perfection.",
+          price: "₹330",
+          image: WatermelonGreekSalad,
+        },
+        {
+          name: "Orange and Walnut Salad",
+          description:
+            "Crunchy walnuts and zesty oranges tossed in a light dressing — elegant and energizing.",
+          price: "₹330",
+          image: OrangeAndWalnutSalad,
+        },
+        {
+          name: "Romain and Chicken Salad",
+          description:
+            "Tender chicken and crisp lettuce in a creamy dressing — a protein-packed delight.",
+          price: "₹350",
+          image: RomainAndChickenSalad,
+          type: "non-veg",
+        },
+        {
+          name: "Indian Green Salad",
+          description:
+            "A classic mix of fresh seasonal greens — light, crisp, and full of natural flavor.",
+          price: "₹150",
+          image: IndianGreenSalad,
         },
       ],
     },
+    //TANDOOR
     {
-      title: "VEG APPETIZERS",
+      title: "TANDOOR",
+      description:
+        "Authentic tandoori delights straight from the clay oven — smoky, spiced, and irresistibly flavorful. Includes both vegetarian and non-vegetarian options.",
+      items: [
+        //Vegetarian
+        {
+          name: "Veg Platter",
+          description:
+            "A chef’s selection of tandoori favorites — smoky, spiced, and perfectly grilled.",
+          price: "₹799",
+          image: VegPlatter,
+          type: "veg",
+        },
+        {
+          name: "Peri Peri Paneer Tikka",
+          description:
+            "Soft paneer cubes marinated in fiery peri-peri spices, grilled to golden perfection.",
+          price: "₹299",
+          image: PeriPeriPaneerTikka,
+          type: "veg",
+        },
+        {
+          name: "Paneer Malai Tikka",
+          description:
+            "Creamy, melt-in-mouth paneer infused with rich malai and subtle Indian herbs.",
+          price: "₹319",
+          image: PaneerMalaiTikka,
+          type: "veg",
+        },
+        {
+          name: "Vegetable Almond Seekh",
+          description:
+            "A nutty twist to the classic seekh — minced veggies blended with almonds and spices.",
+          price: "₹299",
+          image: VegetableAlmondSeekh,
+          type: "veg",
+        },
+        {
+          name: "Kumbh Ki Nazakat",
+          description:
+            "Juicy mushrooms stuffed with herbs and cheese, slow-roasted in the tandoor.",
+          price: "₹299",
+          image: KumbhKiNazakat,
+          type: "veg",
+        },
+        {
+          name: "Paneer Tikka",
+          description:
+            "The timeless favorite — succulent paneer, marinated in yogurt and aromatic spices.",
+          price: "₹299",
+          image: PaneerTikka,
+          type: "veg",
+        },
+        {
+          name: "Paneer Zafran Tikka",
+          description:
+            "Luxurious saffron-infused paneer — rich, fragrant, and full of royal flavor.",
+          price: "₹299",
+          image: PaneerZafranTikka,
+          type: "veg",
+        },
+        {
+          name: "Hara Bhara Kabab",
+          description:
+            "Spinach, peas, and herbs come together for this crisp and wholesome classic.",
+          price: "₹269",
+          image: HaraBharaKabab,
+          type: "veg",
+        },
+
+        //Non-Vegetarian
+        {
+          name: "Murgh Dum Kabab",
+          description:
+            "Tender chicken marinated in yogurt and slow-cooked over charcoal — juicy and flavorful.",
+          price: "₹349",
+          image: MurghDumKabab,
+          type: "non-veg",
+        },
+        {
+          name: "Murgh Platter",
+          description:
+            "A grand assortment of chicken delights — perfect for sharing and savoring.",
+          price: "₹999",
+          image: MurghPlatter,
+          type: "non-veg",
+        },
+        {
+          name: "Murgh Tandoori (Half)",
+          description:
+            "Half-portion of the signature tandoori chicken — smoky, spicy, and irresistible.",
+          price: "₹299",
+          image: MurghTandooriHalf,
+          type: "non-veg",
+        },
+        {
+          name: "Murgh Tandoori (Full)",
+          description:
+            "A whole tandoori masterpiece — char-grilled perfection with bold Indian spices.",
+          price: "₹499",
+          image: MurghTandooriFull,
+          type: "non-veg",
+        },
+        //starters
+        {
+          name: "Chicken Chilli",
+          description:
+            "Crispy chicken tossed in spicy Indo-Chinese sauce — bold, tangy, and full of bite.",
+          price: "₹299",
+          image: "ChickenChilly",
+          type: "non-veg",
+        },
+        {
+          name: "Chicken Teriyaki",
+          description:
+            "Grilled chicken glazed in a rich Japanese teriyaki sauce — sweet, smoky, and irresistible.",
+          price: "₹329",
+          image: "ChickenTeriyaki",
+          type: "non-veg",
+        },
+        {
+          name: "Chicken Lollipop",
+          description:
+            "Classic bar favorite — crispy, juicy wings served with a fiery Schezwan dip.",
+          price: "₹299",
+          image: "ChickenLollipop",
+          type: "non-veg",
+        },
+        {
+          name: "Chicken Tai Pai",
+          description:
+            "Tender chicken wok-tossed with oriental spices — flavorful, aromatic, and perfectly seasoned.",
+          price: "₹299",
+          image: "ChickenTaiPai",
+          type: "non-veg",
+        },
+        {
+          name: "Kung Pao Chicken",
+          description:
+            "A balance of sweet, spicy, and nutty — a wok classic with a kick.",
+          price: "₹307",
+          image: "KungPaoChicken",
+          type: "non-veg",
+        },
+        {
+          name: "Chicken Hunon",
+          description:
+            "Crispy chicken in a savoury garlic-soy glaze — packed with depth and crunch.",
+          price: "₹317",
+          image: "ChickenHunon",
+          type: "non-veg",
+        },
+      ],
+    },
+    //CONTINENTAL & ORIENTAL
+    {
+      title: "CONTINENTAL & ORIENTAL",
+      description:
+        "From bold Continental grills to flavorful Oriental delights — a fusion of world cuisines crafted to excite every palate.",
+      items: [
+        // Oriental Starters – Vegetarian
+        {
+          name: "Thai Spring Roll",
+          description:
+            "Crispy rolls stuffed with veggies and Thai spices — crunchy outside, bursting with flavor inside.",
+          price: "₹249",
+          image: ThaiSpringRoll,
+          type: "veg",
+        },
+        {
+          name: "Paneer Chilly",
+          description:
+            "Indian cottage cheese tossed with bell peppers, soy, and a hit of heat — a sizzling crowd-favorite.",
+          price: "₹249",
+          image: PaneerChilly,
+          type: "veg",
+        },
+        {
+          name: "Veg Manchurian Dry",
+          description:
+            "Crispy veggie balls in a spicy garlic-soy glaze — the perfect Indo-Chinese classic.",
+          price: "₹199",
+          image: VegManchurianDry,
+          type: "veg",
+        },
+        {
+          name: "Teriyaki Mushroom",
+          description:
+            "Button mushrooms wok-tossed in rich teriyaki glaze — umami-packed and deliciously sticky.",
+          price: "₹249",
+          image: TeriyakiMushroom,
+          type: "veg",
+        },
+        {
+          name: "Honey Chilli Potato",
+          description:
+            "Crispy potato fingers glazed with honey and chilli — sweet, spicy, and totally addictive.",
+          price: "₹249",
+          image: HoneyChilliPotato,
+          type: "veg",
+        },
+        // Continental – Non-Veg
+        {
+          name: "Chicken Akitri",
+          description:
+            "Juicy chicken bites tossed in a signature spiced sauce — bold, smoky, and irresistibly tender.",
+          price: "₹349",
+          image: ChickenAkitri,
+          type: "non-veg",
+        },
+        {
+          name: "Lemon Basil Chicken",
+          description:
+            "Refreshing notes of basil and lemon meet grilled chicken — light, fragrant, and full of zest.",
+          price: "₹349",
+          image: LemonBasilChicken,
+          type: "non-veg",
+        },
+        {
+          name: "Chicken Black Pepper",
+          description:
+            "Cracked pepper, garlic, and butter-seared chicken — fiery and full of depth.",
+          price: "₹349",
+          image: ChickenBlackPepper,
+          type: "non-veg",
+        },
+        {
+          name: "Fish Finger",
+          description:
+            "Crispy golden fish fillets served with tangy tartar dip — a crunchy, ocean-fresh indulgence.",
+          price: "₹450",
+          image: FishFinger,
+          type: "non-veg",
+        },
+        {
+          name: "Chimichurri Chicken Wings",
+          description:
+            "Spicy, smoky wings drenched in Argentine-style chimichurri — messy, bold, and worth every bite.",
+          price: "₹349",
+          image: ChimichurriChickenWings,
+          type: "non-veg",
+        },
+      ],
+    },
+    //PIZZA & NOODLES
+    {
+      title: "PIZZA & NOODLES",
+      description:
+        "Wood-fired perfection — from classic vegetarian to meaty indulgence, every slice crafted with love and flavor.",
       items: [
         {
-          name: "GARLIC BREAD",
-          image: garlicBread,
+          name: "Margherita Pizza",
+          description:
+            "A timeless favorite — fresh tomato sauce, mozzarella, and basil baked to perfection.",
+          price: "₹279",
+          image: "MargheritaPizza",
+          type: "veg",
         },
-      ],
-    },
-    {
-      title: "NON-VEG APPETIZERS",
-      items: [
         {
-          name: "MURGH DUM KABAB",
-          image: murghDumKabab,
+          name: "Alfredo Pizza",
+          description:
+            "Creamy alfredo base topped with cheese and herbs — rich, smooth, and indulgent.",
+          price: "₹349",
+          image: "AlfredoPizza",
+          type: "veg",
         },
-      ],
-    },
-    {
-      title: "MARINE APPETIZERS",
-      items: [
         {
-          name: "TANDOORI PRAWN",
-          image: tandooriPrawn,
+          name: "Peri Peri Chicken Pizza",
+          description:
+            "Loaded with spicy peri-peri grilled chicken — bold, fiery, and addictive.",
+          price: "₹397",
+          image: "PeriPeriChickenPizza",
+          type: "non-veg",
         },
-      ],
-    },
-    {
-      title: "VEG STARTERS",
-      items: [
         {
-          name: "PANEER CHILLY",
-          image: paneerChilly,
+          name: "Jamaican Jerk Spiced Chicken",
+          description:
+            "Smoky jerk-marinated chicken meets melty cheese — a tropical twist with heat.",
+          price: "₹399",
+          image: "JamaicanJerkSpicedChicken",
+          type: "non-veg",
         },
-      ],
-    },
-    {
-      title: "NON-VEG STARTERS",
-      items: [
         {
-          name: "CHICKEN CHILLY",
-          image: chickenChilly,
+          name: "Double Decker Pizza",
+          description:
+            "Two layers of cheesy, saucy perfection — double the flavor, double the fun.",
+          price: "₹399",
+          image: "DoubleDeckerPizza",
+          type: "non-veg",
         },
-      ],
-    },
-    {
-      title: "PIZZA VEG",
-      items: [
         {
-          name: "MARGARITA",
-          image: margaritaPizza,
+          name: "Chicken Pepperoni Pizza",
+          description:
+            "Classic pepperoni layered over molten cheese — simple, iconic, and deliciously meaty.",
+          price: "₹447",
+          image: "ChickenPepperoniPizza",
+          type: "non-veg",
+        },
+        // Noodles
+        {
+          name: "Bamigoring Veg",
+          description:
+            "Indonesian-style fried noodles with crunchy vegetables and rich soy seasoning.",
+          price: "₹200",
+          image: "BamigoringVeg",
+          type: "veg",
+        },
+        {
+          name: "Bamigoring Chicken",
+          description:
+            "Aromatic noodles with spiced chicken — a perfect blend of sweet, savory, and spicy.",
+          price: "₹300",
+          image: "BamigoringChicken",
+          type: "non-veg",
+        },
+        {
+          name: "Bamigoring Prawns",
+          description:
+            "Juicy prawns tossed with exotic noodles and bold Asian flavors.",
+          price: "₹400",
+          image: "BamigoringPrawns",
+          type: "non-veg",
+        },
+        {
+          name: "Hakka Noodles Veg",
+          description:
+            "Classic wok-tossed noodles with colorful veggies and a burst of umami flavor.",
+          price: "₹250",
+          image: "HakkaNoodlesVeg",
+          type: "veg",
+        },
+        {
+          name: "Hakka Noodles Chicken",
+          description:
+            "Soft noodles with tender chicken and tossed in smoky wok essence.",
+          price: "₹300",
+          image: "HakkaNoodlesChicken",
+          type: "non-veg",
+        },
+        {
+          name: "Hakka Noodles Prawns",
+          description:
+            "A coastal twist on the classic — prawns, veggies, and noodles in perfect harmony.",
+          price: "₹400",
+          image: "HakkaNoodlesPrawns",
+          type: "non-veg",
+        },
+        {
+          name: "Schezwan Noodles Veg",
+          description:
+            "A spicy noodle delight packed with flavor, color, and crunch.",
+          price: "₹250",
+          image: "SchezwanNoodlesVeg",
+          type: "veg",
+        },
+        {
+          name: "Schezwan Noodles Chicken",
+          description:
+            "Chicken and noodles tossed in Schezwan sauce — bold, tangy, and satisfying.",
+          price: "₹300",
+          image: "SchezwanNoodlesChicken",
+          type: "non-veg",
+        },
+        {
+          name: "Schezwan Noodles Prawns",
+          description:
+            "Sizzling Schezwan prawns meet perfectly cooked noodles — fiery and full of flavor.",
+          price: "₹400",
+          image: "SchezwanNoodlesPrawns",
+          type: "non-veg",
         },
       ],
     },
+    //Main Course
+    {
+      title: "MAIN COURSE",
+      description:
+        "A flavorful selection of authentic Indian curries and breads — rich, aromatic, and made to satisfy every craving.",
+      items: [
+        // INDIAN BREAD
+        {
+          name: "Roti",
+          description: "Soft whole wheat bread — the classic Indian staple.",
+          price: "₹35",
+          image: "Roti",
+        },
+        {
+          name: "Butter Roti",
+          description:
+            "Fluffy roti brushed with golden butter for extra flavor.",
+          price: "₹45",
+          image: "ButterRoti",
+        },
+        {
+          name: "Lachha Paratha",
+          description:
+            "Layered flaky paratha cooked to perfection — crispy outside, soft inside.",
+          price: "₹60",
+          image: "LachhaParatha",
+        },
+        {
+          name: "Naan",
+          description:
+            "Traditional tandoor-baked bread — soft, chewy, and warm.",
+          price: "₹60",
+          image: "Naan",
+        },
+        {
+          name: "Butter Naan",
+          description:
+            "Tandoori naan coated in melted butter — the perfect pairing with rich gravies.",
+          price: "₹70",
+          image: "ButterNaan",
+        },
+        {
+          name: "Garlic Naan",
+          description:
+            "Naan infused with roasted garlic and herbs — aromatic and flavorful.",
+          price: "₹109",
+          image: "GarlicNaan",
+        },
+        {
+          name: "Cheese Garlic Naan",
+          description:
+            "Soft, cheesy delight stuffed with gooey cheese and garlic — indulgence at its best.",
+          price: "₹150",
+          image: "CheeseGarlicNaan",
+        },
+
+        // MAIN COURSE – VEGETARIAN
+        {
+          name: "Lasooni Palak",
+          description:
+            "A rich blend of spinach and garlic, cooked to perfection with traditional Indian spices.",
+          price: "₹289",
+          image: "LasooniPalak",
+          type: "veg",
+        },
+        {
+          name: "Paneer Makhani",
+          description:
+            "Soft paneer cubes in a velvety tomato-butter gravy — smooth, creamy, and mildly spiced.",
+          price: "₹299",
+          image: "PaneerMakhani",
+          type: "veg",
+        },
+        {
+          name: "Paneer Tikka Lazeez",
+          description:
+            "Char-grilled paneer simmered in a spiced, smoky gravy bursting with flavor.",
+          price: "₹289",
+          image: "PaneerTikkaLazeez",
+          type: "veg",
+        },
+        {
+          name: "Kadhai Paneer",
+          description:
+            "Paneer cooked with bell peppers, onions, and aromatic kadhai masala for a bold, rustic taste.",
+          price: "₹289",
+          image: "KadhaiPaneer",
+          type: "veg",
+        },
+        {
+          name: "Vegetable Rara",
+          description:
+            "A hearty medley of vegetables cooked in a rich, spiced curry — full-bodied and satisfying.",
+          price: "₹289",
+          image: "VegetableRara",
+          type: "veg",
+        },
+        {
+          name: "Shahi Paneer",
+          description:
+            "A royal delicacy — paneer in a creamy cashew-based gravy with subtle sweetness.",
+          price: "₹289",
+          image: "ShahiPaneer",
+          type: "veg",
+        },
+        {
+          name: "Paneer Butter Masala",
+          description:
+            "Classic comfort — butter, cream, and paneer unite in a rich, indulgent gravy.",
+          price: "₹289",
+          image: "PaneerButterMasala",
+          type: "veg",
+        },
+        {
+          name: "Paneer Dopyaza",
+          description:
+            "Paneer cooked with double onions and earthy spices for a flavorful twist.",
+          price: "₹289",
+          image: "PaneerDopyaza",
+          type: "veg",
+        },
+        {
+          name: "Mix Veg",
+          description:
+            "A colorful blend of seasonal vegetables tossed in flavorful Indian masalas.",
+          price: "₹269",
+          image: "MixVeg",
+          type: "veg",
+        },
+        {
+          name: "Veg Kolhapuri",
+          description:
+            "A spicy, fiery Maharashtrian curry bursting with bold regional flavors.",
+          price: "₹269",
+          image: "VegKolhapuri",
+          type: "veg",
+        },
+        {
+          name: "Veg Maratha",
+          description:
+            "A rich, spicy curry with a roasted coconut base — authentic, aromatic, and indulgent.",
+          price: "₹279",
+          image: "VegMaratha",
+          type: "veg",
+        },
+        {
+          name: "Veg Bhoona",
+          description:
+            "Slow-cooked vegetables in a thick, masala-rich gravy — bold, balanced, and soulful.",
+          price: "₹279",
+          image: "VegBhoona",
+          type: "veg",
+        },
+
+        // MAIN COURSE – NON-VEG
+        {
+          name: "Butter Chicken",
+          description:
+            "Tender chicken simmered in rich, buttery tomato gravy — smooth, creamy, and irresistible.",
+          price: "₹330",
+          image: "ButterChicken",
+          type: "non-veg",
+        },
+        {
+          name: "Murg Tikka Lazeez",
+          description:
+            "Char-grilled chicken tikka cooked in a luscious spiced gravy — smoky and full of flavor.",
+          price: "₹330",
+          image: "MurgTikkaLazeez",
+          type: "non-veg",
+        },
+        {
+          name: "Kadhai Murg",
+          description:
+            "A bold North Indian classic — chicken tossed with peppers and aromatic spices.",
+          price: "₹350",
+          image: "KadhaiMurg",
+          type: "non-veg",
+        },
+        {
+          name: "Rara Murg",
+          description:
+            "Slow-cooked chicken in a thick, meaty gravy — hearty and indulgent.",
+          price: "₹350",
+          image: "RaraMurg",
+          type: "non-veg",
+        },
+        {
+          name: "Pomfret Mapas",
+          description:
+            "Fresh pomfret cooked in coastal-style coconut gravy — fragrant and mildly spiced.",
+          price: "₹380",
+          image: "PomfretMapas",
+          type: "non-veg",
+        },
+        {
+          name: "Prawn Mapas",
+          description:
+            "Succulent prawns in a coastal coconut curry — rich, aromatic, and beautifully balanced.",
+          price: "₹450",
+          image: "PrawnMapas",
+          type: "non-veg",
+        },
+        {
+          name: "Prawn Mirch Masala",
+          description:
+            "Juicy prawns in a fiery chili masala — bold, spicy, and full of zest.",
+          price: "₹399",
+          image: "PrawnMirchMasala",
+          type: "non-veg",
+        },
+        {
+          name: "Chicken Handi",
+          description:
+            "Home-style chicken curry cooked in a clay pot — tender, aromatic, and deeply flavorful.",
+          price: "₹399",
+          image: "ChickenHandi",
+          type: "non-veg",
+        },
+      ],
+    },
+    //BIRYANI & RICE
+    {
+      title: "BIRYANI & RICE",
+      description:
+        "From aromatic matka biryanis to flavorful oriental rice and noodles — every grain cooked with perfection and spice.",
+      items: [
+        //RICE SELECTIONS
+        {
+          name: "Steam Rice",
+          description:
+            "Soft, fluffy steamed basmati rice — perfect with every curry.",
+          price: "₹149",
+          image: "SteamRice",
+          type: "veg",
+        },
+        {
+          name: "Jeera Rice",
+          description:
+            "Fragrant cumin-flavored rice — a timeless Indian favorite.",
+          price: "₹199",
+          image: "JeeraRice",
+          type: "veg",
+        },
+
+        //INDIAN COMFORTS
+        {
+          name: "Veg Pulao",
+          description:
+            "Aromatic basmati rice tossed with garden-fresh vegetables and mild spices — simple, wholesome, and flavorful.",
+          price: "₹189",
+          image: "VegPulao",
+          type: "veg",
+        },
+        {
+          name: "Dal Khichdi",
+          description:
+            "A cozy comfort dish made with lentils and rice — light, nourishing, and soul-satisfying.",
+          price: "₹189",
+          image: "DalKhichdi",
+          type: "veg",
+        },
+        {
+          name: "Veg Raita",
+          description:
+            "Cool, creamy yogurt blended with fresh vegetables and a hint of spice.",
+          price: "₹279",
+          image: "VegRaita",
+          type: "veg",
+        },
+        {
+          name: "Pineapple Raita",
+          description:
+            "Sweet and tangy pineapple folded into chilled yogurt — a refreshing twist to your meal.",
+          price: "₹130",
+          image: "PineappleRaita",
+          type: "veg",
+        },
+        {
+          name: "Dal Fry",
+          description:
+            "Golden lentils tempered with garlic, cumin, and ghee — rich in flavor, perfect with any bread or rice.",
+          price: "₹199",
+          image: "DalFry",
+          type: "veg",
+        },
+        {
+          name: "Dal Tadka",
+          description:
+            "Classic yellow dal topped with sizzling ghee tadka — smoky, aromatic, and deliciously hearty.",
+          price: "₹219",
+          image: "DalTadka",
+          type: "veg",
+        },
+        // ORIENTAL – RICE
+        {
+          name: "Schezwan Rice (Veg)",
+          description:
+            "Fiery and flavorful rice tossed with Schezwan sauce, fresh veggies, and a hint of spice.",
+          price: "₹250",
+          image: "SchezwanRiceVeg",
+          type: "veg",
+        },
+        {
+          name: "Schezwan Rice (Chicken)",
+          description:
+            "Smoky stir-fried rice loaded with tender chicken and Schezwan heat.",
+          price: "₹300",
+          image: "SchezwanRiceChicken",
+          type: "non-veg",
+        },
+        {
+          name: "Schezwan Rice (Prawns)",
+          description:
+            "Perfectly cooked prawns tossed in Schezwan rice — bold, spicy, and deliciously coastal.",
+          price: "₹399",
+          image: "SchezwanRicePrawns",
+          type: "non-veg",
+        },
+
+        //MATKA BIRYANI
+        {
+          name: "Matka Biryani Vegetable",
+          description:
+            "Aromatic basmati rice layered with spiced vegetables, slow-cooked to perfection.",
+          price: "₹249",
+          image: "MatkaBiryaniVegetable",
+          type: "veg",
+        },
+        {
+          name: "Matka Biryani Egg",
+          description:
+            "Classic biryani with boiled eggs and signature spiced masala — simple yet satisfying.",
+          price: "₹299",
+          image: "MatkaBiryaniEgg",
+          type: "non-veg",
+        },
+        {
+          name: "Matka Biryani Chicken",
+          description:
+            "Flavorful chicken biryani cooked in a sealed clay pot — juicy, fragrant, and rich.",
+          price: "₹349",
+          image: "MatkaBiryaniChicken",
+          type: "non-veg",
+        },
+        {
+          name: "Matka Biryani Prawns",
+          description:
+            "Delicate prawns layered with fragrant rice and spices — coastal perfection in a matka.",
+          price: "₹399",
+          image: "MatkaBiryaniPrawns",
+          type: "non-veg",
+        },
+      ],
+    },
+    //DESSERTS
     {
       title: "DESSERTS",
+      description:
+        "Sweet endings to your feast — from sizzling brownies to classic Indian favorites, each dessert crafted to melt your heart.",
       items: [
         {
-          name: "SIZZLING BROWNIE",
+          name: "Sizzling Brownie with Ice Cream",
+          description:
+            "A rich, gooey chocolate brownie served sizzling hot with a scoop of creamy vanilla ice cream — a timeless indulgence that melts hearts and chocolate alike.",
+          price: "₹199",
           image: sizzlingBrownie,
+        },
+        {
+          name: "Gulab Jamun",
+          description:
+            "Soft, golden dumplings soaked in warm saffron syrup — sweet, simple, and soul-satisfying.",
+          price: "₹79",
+          image: "GulabJamun",
+        },
+        {
+          name: "Gulab Jamun with Ice Cream",
+          description:
+            "A royal twist on a classic — hot, syrupy gulab jamuns paired with cold vanilla ice cream for that perfect contrast.",
+          price: "₹100",
+          image: "GulabJamunWithIceCream",
+        },
+        {
+          name: "Choice of Ice Cream",
+          description:
+            "Select from our range of creamy, refreshing ice creams to end your meal on a cool note.",
+          price: "₹69",
+          image: "ChoiceOfIceCream",
         },
       ],
     },
@@ -334,36 +1398,28 @@ const Menu = () => {
       </section>
 
       <main className="py-24">
-        {/* Menu Title and Introduction */}
-        <div className="container mx-auto px-4 mb-20">
-          <h1 className="text-5xl md:text-6xl font-bold text-center mb-16 tracking-wide">
+        {/* Menu Title and Intro */}
+        <div className="container mx-auto px-4 mb-12 text-center">
+          <h1 className="text-5xl md:text-6xl font-bold mb-10 tracking-wide">
             MENU
           </h1>
-
-          <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-            <div>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Explore our signature cocktails, classic drinks, and refreshing
-                mocktails made with premium ingredients. Perfectly paired with
-                tasty bites for an unforgettable experience. Cheers!
-              </p>
-            </div>
-            <div className="rounded-lg overflow-hidden shadow-2xl">
-              <img
-                src={menuSideImage}
-                alt="Signature Cocktails and Food"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
+          <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+            Explore our signature cocktails, mocktails, and delicious bites —
+            handcrafted for every taste and occasion.
+          </p>
         </div>
 
-        <Separator className="my-12" />
+        {/* Sticky Category Navigation */}
+        <CategoryNavigation />
 
         {/* Menu Categories */}
         <div className="container mx-auto px-4 max-w-5xl">
           {menuCategories.map((category, index) => (
-            <div key={index} className="mb-16">
+            <div
+              id={category.title.toLowerCase().replace(/\s+/g, "-")}
+              key={index}
+              className="mb-16 scroll-mt-32"
+            >
               <h2 className="text-3xl md:text-4xl font-bold text-center mb-6 tracking-wider">
                 {category.title}
               </h2>
@@ -382,9 +1438,36 @@ const Menu = () => {
                   >
                     <div className="flex justify-between items-start gap-6">
                       <div className="flex-1">
-                        <h3 className="text-xl font-bold mb-2 tracking-wide">
-                          {item.name}
-                        </h3>
+                        <div className="flex items-start gap-2 mb-2 leading-snug flex-wrap">
+                          <h3 className="text-xl font-bold tracking-wide">
+                            {item.name}
+                          </h3>
+
+                          {/* Veg / Non-Veg Symbol */}
+                          {item.type ? (
+                            <span className="inline-flex items-center mt-0.5">
+                              <div
+                                className="relative w-4 h-4 border border-gray-400 flex items-center justify-center rounded-sm"
+                                title={
+                                  item.type === "veg"
+                                    ? "Vegetarian"
+                                    : "Non-Vegetarian"
+                                }
+                              >
+                                <div
+                                  className={`w-2.5 h-2.5 ${
+                                    item.type === "veg"
+                                      ? "bg-green-600"
+                                      : "bg-red-600"
+                                  }`}
+                                ></div>
+                              </div>
+                            </span>
+                          ) : (
+                            <div className="w-4 h-4 opacity-0"></div> //placeholder for alignment
+                          )}
+                        </div>
+
                         {item.description && (
                           <p className="text-muted-foreground mb-2">
                             {item.description}
