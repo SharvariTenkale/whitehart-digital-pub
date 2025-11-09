@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { useState } from "react";
 import { useEffect } from "react";
+import emailjs from "@emailjs/browser";
 
 const Reservations = () => {
   const [formData, setFormData] = useState({
@@ -14,20 +15,44 @@ const Reservations = () => {
     phone: "",
     date: "",
     time: "",
-    guests: "2",
+    guests: "2", // default value
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    toast.success("Reservation request received! We'll contact you shortly.");
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      date: "",
-      time: "",
-      guests: "2",
-    });
+
+    const dataToSend = {
+      ...formData,
+      message: "New booking request received!",
+      created_at: new Date().toLocaleString(),
+    };
+
+    emailjs
+      .send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        formData,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          alert("Your reservation request has been sent!");
+          // ✅ Clear the form after successful submission
+          setFormData({
+            name: "",
+            email: "",
+            phone: "",
+            date: "",
+            time: "",
+            guests: "2", // default value
+          });
+        },
+        (error) => {
+          console.error(error.text);
+          alert("Something went wrong. Please try again.");
+        }
+      );
   };
 
   useEffect(() => {

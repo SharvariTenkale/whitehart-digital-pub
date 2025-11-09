@@ -92,6 +92,82 @@ import PaneerChilly from "@/assets/Continental_&_Oriental_Appetizers/paneer-chil
 import VegManchurianDry from "@/assets/Continental_&_Oriental_Appetizers/veg-manchurian-dry.jpg";
 import TeriyakiMushroom from "@/assets/Continental_&_Oriental_Appetizers/teriyaki-mushroom.jpg";
 import HoneyChilliPotato from "@/assets/Continental_&_Oriental_Appetizers/honey-chilli-potato.jpg";
+//Non-Veg Starters
+import ChickenChilly from "@/assets/Non_Veg_Starters/chicken-chilli.jpg";
+import ChickenTeriyaki from "@/assets/Non_Veg_Starters/chicken-teriyaki.jpg";
+import ChickenLollipop from "@/assets/Non_Veg_Starters/chicken-lollipop.jpg";
+import ChickenTaiPai from "@/assets/Non_Veg_Starters/chicken-tai-pai.jpg";
+import KungPaoChicken from "@/assets/Non_Veg_Starters/kung-pao-chicken.jpg";
+import ChickenHunon from "@/assets/Non_Veg_Starters/chicken-hunon.jpg";
+//pizza images
+import ChickenPepperoniPizza from "@/assets/Non_Veg_Starters/chicken-pepperoni-pizza.jpg";
+import MargheritaPizza from "@/assets/Non_Veg_Starters/margherita-pizza.jpg";
+import DoubleDeckerPizza from "@/assets/Non_Veg_Starters/double-decker-pizza.jpg";
+import PeriPeriChickenPizza from "@/assets/Non_Veg_Starters/peri-peri-chicken-pizza.jpg";
+import AlfredoPizza from "@/assets/Non_Veg_Starters/alfredo-pizza.jpg";
+import JamaicanJerkSpicedChicken from "@/assets/Non_Veg_Starters/jamaican-jerk-spiced-chicken.jpg";
+//Noodles images
+import BamigoringPrawns from "@/assets/Oriental_Rice_Noodles/bamigoring-prawns.jpg";
+import BamigoringVeg from "@/assets/Oriental_Rice_Noodles/bamigoring-veg.jpg";
+import BamigoringChicken from "@/assets/Oriental_Rice_Noodles/bamigoring-chicken.jpg";
+import HakkaNoodlesVeg from "@/assets/Oriental_Rice_Noodles/hakka-noodles-veg.jpg";
+import HakkaNoodlesChicken from "@/assets/Oriental_Rice_Noodles/hakka-noodles-chicken.jpg";
+import HakkaNoodlesPrawns from "@/assets/Oriental_Rice_Noodles/hakka-noodles-prawns.jpg";
+import SchezwanNoodlesVeg from "@/assets/Oriental_Rice_Noodles/schezwan-noodles-veg.jpg";
+import SchezwanNoodlesChicken from "@/assets/Oriental_Rice_Noodles/schezwan-noodles-chicken.jpg";
+import SchezwanNoodlesPrawns from "@/assets/Oriental_Rice_Noodles/schezwan-noodles-prawns.jpg";
+import SchezwanRiceVeg from "@/assets/Oriental_Rice_Noodles/schezwan-rice-veg.jpg";
+import SchezwanRiceChicken from "@/assets/Oriental_Rice_Noodles/schezwan-rice-chicken.jpg";
+import SchezwanRicePrawns from "@/assets/Oriental_Rice_Noodles/schezwan-rice-prawns.jpg";
+
+//Main Course – indian comfort
+import Roti from "@/assets/Indian_Comforts/roti.jpg";
+import Naan from "@/assets/Indian_Comforts/naan.jpg";
+import ButterNaan from "@/assets/Indian_Comforts/butter-naan.jpg";
+import ButterRoti from "@/assets/Indian_Comforts/butter-roti.jpg";
+import GarlicNaan from "@/assets/Indian_Comforts/garlic-naan.jpg";
+import CheeseGarlicNaan from "@/assets/Indian_Comforts/cheese-garlic-naan.jpg";
+import LacchaParatha from "@/assets/Indian_Comforts/laccha-paratha.jpg";
+import DalFry from "@/assets/Indian_Comforts/dal-fry.jpg";
+import DalTadka from "@/assets/Indian_Comforts/dal-tadka.jpg";
+import VegRaita from "@/assets/Indian_Comforts/veg-raita.jpg";
+import PineappleRaita from "@/assets/Indian_Comforts/pineapple-raita.jpg";
+
+import LasooniPalak from "@/assets/Main_Course/lasooni-palak.jpg";
+import KadhaiPaneer from "@/assets/Main_Course/kadhai-paneer.jpg";
+import ShahiPaneer from "@/assets/Main_Course/shahi-paneer.jpg";
+import PaneerButterMasala from "@/assets/Main_Course/paneer-butter-masala.jpg";
+import PaneerDopyaza from "@/assets/Main_Course/paneer-dopyaza.jpg";
+import PaneerMakhani from "@/assets/Main_Course/paneer-makhani.jpg";
+import PaneerTikkaLazeez from "@/assets/Main_Course/paneer-tikka-lazeez.jpg";
+import VegetableRara from "@/assets/Main_Course/vegetable-rara.jpg";
+import MixVeg from "@/assets/Main_Course/mix-veg.jpg";
+import VegKolhapuri from "@/assets/Main_Course/veg-kolhapuri.jpg";
+import VegMaratha from "@/assets/Main_Course/veg-maratha.jpg";
+import VegBhoona from "@/assets/Main_Course/veg-bhoona.jpg";
+import MurgTikkaLazeez from "@/assets/Non_Veg_Main_Course/murg-tikka-lazeez.jpg";
+import KadhaiMurg from "@/assets/Non_Veg_Main_Course/kadhai-murg.jpg";
+import RaraMurg from "@/assets/Non_Veg_Main_Course/rara-murg.jpg";
+import PomfretMapas from "@/assets/Non_Veg_Main_Course/pomfret-mapas.jpg";
+import PrawnMapas from "@/assets/Non_Veg_Main_Course/prawn-mapas.jpg";
+import PrawnMirchMasala from "@/assets/Non_Veg_Main_Course/prawn-mirch-masala.jpg";
+import ChickenHandi from "@/assets/Non_Veg_Main_Course/chicken-handi.jpg";
+import ButterChicken from "@/assets/Non_Veg_Main_Course/butter-chicken.jpg";
+
+//Rice images
+import JeeraRice from "@/assets/Oriental_Rice_Noodles/jeera-rice.jpg";
+import SteamRice from "@/assets/Oriental_Rice_Noodles/steam-rice.jpg";
+import VegPulao from "@/assets/Oriental_Rice_Noodles/veg-pulao.jpg";
+import DalKhichdi from "@/assets/Oriental_Rice_Noodles/dal-khichdi.jpg";
+import MatkaBiryaniVegetable from "@/assets/Oriental_Rice_Noodles/matka-biryani-vegetable.jpg";
+import MatkaBiryaniEgg from "@/assets/Oriental_Rice_Noodles/matka-biryani-egg.jpg";
+import MatkaBiryaniChicken from "@/assets/Oriental_Rice_Noodles/matka-biryani-chicken.jpg";
+import MatkaBiryaniPrawns from "@/assets/Oriental_Rice_Noodles/matka-biryani-prawns.jpg";
+
+//Dessert images
+import GulabJamun from "@/assets/Desserts/gulab-jamun.jpg";
+import GulabJamunWithIceCream from "@/assets/Desserts/gulab-jamun-with-ice-cream.jpg";
+import ChoiceOfIceCream from "@/assets/Desserts/choice-of-ice-cream.jpg";
 
 //food images
 import sizzlingBrownie from "@/assets/sizzling-brownie.jpg";
@@ -150,7 +226,18 @@ const CategoryNavigation = () => {
                   category.toLowerCase().replace(/\s+/g, "-")
                 );
                 if (section) {
-                  section.scrollIntoView({ behavior: "smooth" });
+                  const w = window.innerWidth;
+                  let offset = 140; // default (tablet/desktop)
+
+                  if (w < 360) offset = 200; // very small phones
+                  else if (w < 480) offset = 180; // small phones
+                  else if (w < 640) offset = 160; // regular phones
+
+                  const sectionTop =
+                    section.getBoundingClientRect().top +
+                    window.scrollY -
+                    offset;
+                  window.scrollTo({ top: sectionTop, behavior: "smooth" });
                 }
               }}
               className="px-3 py-1 sm:px-4 sm:py-2 rounded-md flex-shrink-0 snap-center hover:text-primary transition-colors duration-300"
@@ -722,7 +809,7 @@ const Menu = () => {
           description:
             "Crispy chicken tossed in spicy Indo-Chinese sauce — bold, tangy, and full of bite.",
           price: "₹299",
-          image: "ChickenChilly",
+          image: ChickenChilly,
           type: "non-veg",
         },
         {
@@ -730,7 +817,7 @@ const Menu = () => {
           description:
             "Grilled chicken glazed in a rich Japanese teriyaki sauce — sweet, smoky, and irresistible.",
           price: "₹329",
-          image: "ChickenTeriyaki",
+          image: ChickenTeriyaki,
           type: "non-veg",
         },
         {
@@ -738,7 +825,7 @@ const Menu = () => {
           description:
             "Classic bar favorite — crispy, juicy wings served with a fiery Schezwan dip.",
           price: "₹299",
-          image: "ChickenLollipop",
+          image: ChickenLollipop,
           type: "non-veg",
         },
         {
@@ -746,7 +833,7 @@ const Menu = () => {
           description:
             "Tender chicken wok-tossed with oriental spices — flavorful, aromatic, and perfectly seasoned.",
           price: "₹299",
-          image: "ChickenTaiPai",
+          image: ChickenTaiPai,
           type: "non-veg",
         },
         {
@@ -754,7 +841,7 @@ const Menu = () => {
           description:
             "A balance of sweet, spicy, and nutty — a wok classic with a kick.",
           price: "₹307",
-          image: "KungPaoChicken",
+          image: KungPaoChicken,
           type: "non-veg",
         },
         {
@@ -762,7 +849,7 @@ const Menu = () => {
           description:
             "Crispy chicken in a savoury garlic-soy glaze — packed with depth and crunch.",
           price: "₹317",
-          image: "ChickenHunon",
+          image: ChickenHunon,
           type: "non-veg",
         },
       ],
@@ -868,7 +955,7 @@ const Menu = () => {
           description:
             "A timeless favorite — fresh tomato sauce, mozzarella, and basil baked to perfection.",
           price: "₹279",
-          image: "MargheritaPizza",
+          image: MargheritaPizza,
           type: "veg",
         },
         {
@@ -876,7 +963,7 @@ const Menu = () => {
           description:
             "Creamy alfredo base topped with cheese and herbs — rich, smooth, and indulgent.",
           price: "₹349",
-          image: "AlfredoPizza",
+          image: AlfredoPizza,
           type: "veg",
         },
         {
@@ -884,7 +971,7 @@ const Menu = () => {
           description:
             "Loaded with spicy peri-peri grilled chicken — bold, fiery, and addictive.",
           price: "₹397",
-          image: "PeriPeriChickenPizza",
+          image: PeriPeriChickenPizza,
           type: "non-veg",
         },
         {
@@ -892,7 +979,7 @@ const Menu = () => {
           description:
             "Smoky jerk-marinated chicken meets melty cheese — a tropical twist with heat.",
           price: "₹399",
-          image: "JamaicanJerkSpicedChicken",
+          image: JamaicanJerkSpicedChicken,
           type: "non-veg",
         },
         {
@@ -900,7 +987,7 @@ const Menu = () => {
           description:
             "Two layers of cheesy, saucy perfection — double the flavor, double the fun.",
           price: "₹399",
-          image: "DoubleDeckerPizza",
+          image: DoubleDeckerPizza,
           type: "non-veg",
         },
         {
@@ -908,7 +995,7 @@ const Menu = () => {
           description:
             "Classic pepperoni layered over molten cheese — simple, iconic, and deliciously meaty.",
           price: "₹447",
-          image: "ChickenPepperoniPizza",
+          image: ChickenPepperoniPizza,
           type: "non-veg",
         },
         // Noodles
@@ -917,7 +1004,7 @@ const Menu = () => {
           description:
             "Indonesian-style fried noodles with crunchy vegetables and rich soy seasoning.",
           price: "₹200",
-          image: "BamigoringVeg",
+          image: BamigoringVeg,
           type: "veg",
         },
         {
@@ -925,7 +1012,7 @@ const Menu = () => {
           description:
             "Aromatic noodles with spiced chicken — a perfect blend of sweet, savory, and spicy.",
           price: "₹300",
-          image: "BamigoringChicken",
+          image: BamigoringChicken,
           type: "non-veg",
         },
         {
@@ -933,7 +1020,7 @@ const Menu = () => {
           description:
             "Juicy prawns tossed with exotic noodles and bold Asian flavors.",
           price: "₹400",
-          image: "BamigoringPrawns",
+          image: BamigoringPrawns,
           type: "non-veg",
         },
         {
@@ -941,7 +1028,7 @@ const Menu = () => {
           description:
             "Classic wok-tossed noodles with colorful veggies and a burst of umami flavor.",
           price: "₹250",
-          image: "HakkaNoodlesVeg",
+          image: HakkaNoodlesVeg,
           type: "veg",
         },
         {
@@ -949,7 +1036,7 @@ const Menu = () => {
           description:
             "Soft noodles with tender chicken and tossed in smoky wok essence.",
           price: "₹300",
-          image: "HakkaNoodlesChicken",
+          image: HakkaNoodlesChicken,
           type: "non-veg",
         },
         {
@@ -957,7 +1044,7 @@ const Menu = () => {
           description:
             "A coastal twist on the classic — prawns, veggies, and noodles in perfect harmony.",
           price: "₹400",
-          image: "HakkaNoodlesPrawns",
+          image: HakkaNoodlesPrawns,
           type: "non-veg",
         },
         {
@@ -965,7 +1052,7 @@ const Menu = () => {
           description:
             "A spicy noodle delight packed with flavor, color, and crunch.",
           price: "₹250",
-          image: "SchezwanNoodlesVeg",
+          image: SchezwanNoodlesVeg,
           type: "veg",
         },
         {
@@ -973,7 +1060,7 @@ const Menu = () => {
           description:
             "Chicken and noodles tossed in Schezwan sauce — bold, tangy, and satisfying.",
           price: "₹300",
-          image: "SchezwanNoodlesChicken",
+          image: SchezwanNoodlesChicken,
           type: "non-veg",
         },
         {
@@ -981,7 +1068,7 @@ const Menu = () => {
           description:
             "Sizzling Schezwan prawns meet perfectly cooked noodles — fiery and full of flavor.",
           price: "₹400",
-          image: "SchezwanNoodlesPrawns",
+          image: SchezwanNoodlesPrawns,
           type: "non-veg",
         },
       ],
@@ -997,49 +1084,49 @@ const Menu = () => {
           name: "Roti",
           description: "Soft whole wheat bread — the classic Indian staple.",
           price: "₹35",
-          image: "Roti",
+          image: Roti,
         },
         {
           name: "Butter Roti",
           description:
             "Fluffy roti brushed with golden butter for extra flavor.",
           price: "₹45",
-          image: "ButterRoti",
+          image: ButterRoti,
         },
         {
           name: "Lachha Paratha",
           description:
             "Layered flaky paratha cooked to perfection — crispy outside, soft inside.",
           price: "₹60",
-          image: "LachhaParatha",
+          image: LacchaParatha,
         },
         {
           name: "Naan",
           description:
             "Traditional tandoor-baked bread — soft, chewy, and warm.",
           price: "₹60",
-          image: "Naan",
+          image: Naan,
         },
         {
           name: "Butter Naan",
           description:
             "Tandoori naan coated in melted butter — the perfect pairing with rich gravies.",
           price: "₹70",
-          image: "ButterNaan",
+          image: ButterNaan,
         },
         {
           name: "Garlic Naan",
           description:
             "Naan infused with roasted garlic and herbs — aromatic and flavorful.",
           price: "₹109",
-          image: "GarlicNaan",
+          image: GarlicNaan,
         },
         {
           name: "Cheese Garlic Naan",
           description:
             "Soft, cheesy delight stuffed with gooey cheese and garlic — indulgence at its best.",
           price: "₹150",
-          image: "CheeseGarlicNaan",
+          image: CheeseGarlicNaan,
         },
 
         // MAIN COURSE – VEGETARIAN
@@ -1048,7 +1135,7 @@ const Menu = () => {
           description:
             "A rich blend of spinach and garlic, cooked to perfection with traditional Indian spices.",
           price: "₹289",
-          image: "LasooniPalak",
+          image: LasooniPalak,
           type: "veg",
         },
         {
@@ -1056,7 +1143,7 @@ const Menu = () => {
           description:
             "Soft paneer cubes in a velvety tomato-butter gravy — smooth, creamy, and mildly spiced.",
           price: "₹299",
-          image: "PaneerMakhani",
+          image: PaneerMakhani,
           type: "veg",
         },
         {
@@ -1064,7 +1151,7 @@ const Menu = () => {
           description:
             "Char-grilled paneer simmered in a spiced, smoky gravy bursting with flavor.",
           price: "₹289",
-          image: "PaneerTikkaLazeez",
+          image: PaneerTikkaLazeez,
           type: "veg",
         },
         {
@@ -1072,7 +1159,7 @@ const Menu = () => {
           description:
             "Paneer cooked with bell peppers, onions, and aromatic kadhai masala for a bold, rustic taste.",
           price: "₹289",
-          image: "KadhaiPaneer",
+          image: KadhaiPaneer,
           type: "veg",
         },
         {
@@ -1080,7 +1167,7 @@ const Menu = () => {
           description:
             "A hearty medley of vegetables cooked in a rich, spiced curry — full-bodied and satisfying.",
           price: "₹289",
-          image: "VegetableRara",
+          image: VegetableRara,
           type: "veg",
         },
         {
@@ -1088,7 +1175,7 @@ const Menu = () => {
           description:
             "A royal delicacy — paneer in a creamy cashew-based gravy with subtle sweetness.",
           price: "₹289",
-          image: "ShahiPaneer",
+          image: ShahiPaneer,
           type: "veg",
         },
         {
@@ -1096,7 +1183,7 @@ const Menu = () => {
           description:
             "Classic comfort — butter, cream, and paneer unite in a rich, indulgent gravy.",
           price: "₹289",
-          image: "PaneerButterMasala",
+          image: PaneerButterMasala,
           type: "veg",
         },
         {
@@ -1104,7 +1191,7 @@ const Menu = () => {
           description:
             "Paneer cooked with double onions and earthy spices for a flavorful twist.",
           price: "₹289",
-          image: "PaneerDopyaza",
+          image: PaneerDopyaza,
           type: "veg",
         },
         {
@@ -1112,7 +1199,7 @@ const Menu = () => {
           description:
             "A colorful blend of seasonal vegetables tossed in flavorful Indian masalas.",
           price: "₹269",
-          image: "MixVeg",
+          image: MixVeg,
           type: "veg",
         },
         {
@@ -1120,7 +1207,7 @@ const Menu = () => {
           description:
             "A spicy, fiery Maharashtrian curry bursting with bold regional flavors.",
           price: "₹269",
-          image: "VegKolhapuri",
+          image: VegKolhapuri,
           type: "veg",
         },
         {
@@ -1128,7 +1215,7 @@ const Menu = () => {
           description:
             "A rich, spicy curry with a roasted coconut base — authentic, aromatic, and indulgent.",
           price: "₹279",
-          image: "VegMaratha",
+          image: VegMaratha,
           type: "veg",
         },
         {
@@ -1136,7 +1223,39 @@ const Menu = () => {
           description:
             "Slow-cooked vegetables in a thick, masala-rich gravy — bold, balanced, and soulful.",
           price: "₹279",
-          image: "VegBhoona",
+          image: VegBhoona,
+          type: "veg",
+        },
+        {
+          name: "Veg Raita",
+          description:
+            "Cool, creamy yogurt blended with fresh vegetables and a hint of spice.",
+          price: "₹279",
+          image: VegRaita,
+          type: "veg",
+        },
+        {
+          name: "Pineapple Raita",
+          description:
+            "Sweet and tangy pineapple folded into chilled yogurt — a refreshing twist to your meal.",
+          price: "₹130",
+          image: PineappleRaita,
+          type: "veg",
+        },
+        {
+          name: "Dal Fry",
+          description:
+            "Golden lentils tempered with garlic, cumin, and ghee — rich in flavor, perfect with any bread or rice.",
+          price: "₹199",
+          image: DalFry,
+          type: "veg",
+        },
+        {
+          name: "Dal Tadka",
+          description:
+            "Classic yellow dal topped with sizzling ghee tadka — smoky, aromatic, and deliciously hearty.",
+          price: "₹219",
+          image: DalTadka,
           type: "veg",
         },
 
@@ -1146,7 +1265,7 @@ const Menu = () => {
           description:
             "Tender chicken simmered in rich, buttery tomato gravy — smooth, creamy, and irresistible.",
           price: "₹330",
-          image: "ButterChicken",
+          image: ButterChicken,
           type: "non-veg",
         },
         {
@@ -1154,7 +1273,7 @@ const Menu = () => {
           description:
             "Char-grilled chicken tikka cooked in a luscious spiced gravy — smoky and full of flavor.",
           price: "₹330",
-          image: "MurgTikkaLazeez",
+          image: MurgTikkaLazeez,
           type: "non-veg",
         },
         {
@@ -1162,7 +1281,7 @@ const Menu = () => {
           description:
             "A bold North Indian classic — chicken tossed with peppers and aromatic spices.",
           price: "₹350",
-          image: "KadhaiMurg",
+          image: KadhaiMurg,
           type: "non-veg",
         },
         {
@@ -1170,7 +1289,7 @@ const Menu = () => {
           description:
             "Slow-cooked chicken in a thick, meaty gravy — hearty and indulgent.",
           price: "₹350",
-          image: "RaraMurg",
+          image: RaraMurg,
           type: "non-veg",
         },
         {
@@ -1178,7 +1297,7 @@ const Menu = () => {
           description:
             "Fresh pomfret cooked in coastal-style coconut gravy — fragrant and mildly spiced.",
           price: "₹380",
-          image: "PomfretMapas",
+          image: PomfretMapas,
           type: "non-veg",
         },
         {
@@ -1186,7 +1305,7 @@ const Menu = () => {
           description:
             "Succulent prawns in a coastal coconut curry — rich, aromatic, and beautifully balanced.",
           price: "₹450",
-          image: "PrawnMapas",
+          image: PrawnMapas,
           type: "non-veg",
         },
         {
@@ -1194,7 +1313,7 @@ const Menu = () => {
           description:
             "Juicy prawns in a fiery chili masala — bold, spicy, and full of zest.",
           price: "₹399",
-          image: "PrawnMirchMasala",
+          image: PrawnMirchMasala,
           type: "non-veg",
         },
         {
@@ -1202,7 +1321,7 @@ const Menu = () => {
           description:
             "Home-style chicken curry cooked in a clay pot — tender, aromatic, and deeply flavorful.",
           price: "₹399",
-          image: "ChickenHandi",
+          image: ChickenHandi,
           type: "non-veg",
         },
       ],
@@ -1219,7 +1338,7 @@ const Menu = () => {
           description:
             "Soft, fluffy steamed basmati rice — perfect with every curry.",
           price: "₹149",
-          image: "SteamRice",
+          image: SteamRice,
           type: "veg",
         },
         {
@@ -1227,7 +1346,7 @@ const Menu = () => {
           description:
             "Fragrant cumin-flavored rice — a timeless Indian favorite.",
           price: "₹199",
-          image: "JeeraRice",
+          image: JeeraRice,
           type: "veg",
         },
 
@@ -1237,7 +1356,7 @@ const Menu = () => {
           description:
             "Aromatic basmati rice tossed with garden-fresh vegetables and mild spices — simple, wholesome, and flavorful.",
           price: "₹189",
-          image: "VegPulao",
+          image: VegPulao,
           type: "veg",
         },
         {
@@ -1245,39 +1364,7 @@ const Menu = () => {
           description:
             "A cozy comfort dish made with lentils and rice — light, nourishing, and soul-satisfying.",
           price: "₹189",
-          image: "DalKhichdi",
-          type: "veg",
-        },
-        {
-          name: "Veg Raita",
-          description:
-            "Cool, creamy yogurt blended with fresh vegetables and a hint of spice.",
-          price: "₹279",
-          image: "VegRaita",
-          type: "veg",
-        },
-        {
-          name: "Pineapple Raita",
-          description:
-            "Sweet and tangy pineapple folded into chilled yogurt — a refreshing twist to your meal.",
-          price: "₹130",
-          image: "PineappleRaita",
-          type: "veg",
-        },
-        {
-          name: "Dal Fry",
-          description:
-            "Golden lentils tempered with garlic, cumin, and ghee — rich in flavor, perfect with any bread or rice.",
-          price: "₹199",
-          image: "DalFry",
-          type: "veg",
-        },
-        {
-          name: "Dal Tadka",
-          description:
-            "Classic yellow dal topped with sizzling ghee tadka — smoky, aromatic, and deliciously hearty.",
-          price: "₹219",
-          image: "DalTadka",
+          image: DalKhichdi,
           type: "veg",
         },
         // ORIENTAL – RICE
@@ -1286,7 +1373,7 @@ const Menu = () => {
           description:
             "Fiery and flavorful rice tossed with Schezwan sauce, fresh veggies, and a hint of spice.",
           price: "₹250",
-          image: "SchezwanRiceVeg",
+          image: SchezwanRiceVeg,
           type: "veg",
         },
         {
@@ -1294,7 +1381,7 @@ const Menu = () => {
           description:
             "Smoky stir-fried rice loaded with tender chicken and Schezwan heat.",
           price: "₹300",
-          image: "SchezwanRiceChicken",
+          image: SchezwanRiceChicken,
           type: "non-veg",
         },
         {
@@ -1302,7 +1389,7 @@ const Menu = () => {
           description:
             "Perfectly cooked prawns tossed in Schezwan rice — bold, spicy, and deliciously coastal.",
           price: "₹399",
-          image: "SchezwanRicePrawns",
+          image: SchezwanRicePrawns,
           type: "non-veg",
         },
 
@@ -1312,7 +1399,7 @@ const Menu = () => {
           description:
             "Aromatic basmati rice layered with spiced vegetables, slow-cooked to perfection.",
           price: "₹249",
-          image: "MatkaBiryaniVegetable",
+          image: MatkaBiryaniVegetable,
           type: "veg",
         },
         {
@@ -1320,7 +1407,7 @@ const Menu = () => {
           description:
             "Classic biryani with boiled eggs and signature spiced masala — simple yet satisfying.",
           price: "₹299",
-          image: "MatkaBiryaniEgg",
+          image: MatkaBiryaniEgg,
           type: "non-veg",
         },
         {
@@ -1328,7 +1415,7 @@ const Menu = () => {
           description:
             "Flavorful chicken biryani cooked in a sealed clay pot — juicy, fragrant, and rich.",
           price: "₹349",
-          image: "MatkaBiryaniChicken",
+          image: MatkaBiryaniChicken,
           type: "non-veg",
         },
         {
@@ -1336,7 +1423,7 @@ const Menu = () => {
           description:
             "Delicate prawns layered with fragrant rice and spices — coastal perfection in a matka.",
           price: "₹399",
-          image: "MatkaBiryaniPrawns",
+          image: MatkaBiryaniPrawns,
           type: "non-veg",
         },
       ],
@@ -1359,21 +1446,21 @@ const Menu = () => {
           description:
             "Soft, golden dumplings soaked in warm saffron syrup — sweet, simple, and soul-satisfying.",
           price: "₹79",
-          image: "GulabJamun",
+          image: GulabJamun,
         },
         {
           name: "Gulab Jamun with Ice Cream",
           description:
             "A royal twist on a classic — hot, syrupy gulab jamuns paired with cold vanilla ice cream for that perfect contrast.",
           price: "₹100",
-          image: "GulabJamunWithIceCream",
+          image: GulabJamunWithIceCream,
         },
         {
           name: "Choice of Ice Cream",
           description:
             "Select from our range of creamy, refreshing ice creams to end your meal on a cool note.",
           price: "₹69",
-          image: "ChoiceOfIceCream",
+          image: ChoiceOfIceCream,
         },
       ],
     },
