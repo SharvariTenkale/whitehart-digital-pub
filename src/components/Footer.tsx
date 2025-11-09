@@ -3,10 +3,10 @@ import logo from "@/assets/logo.png";
 
 const Footer = () => {
   return (
-    <footer className="bg-card text-muted-foreground border-t border-border py-10 px-6">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-center sm:text-left">
+    <footer className="bg-card text-muted-foreground border-t border-border py-8 px-6">
+      <div className="max-w-6xl mx-auto flex flex-wrap justify-center text-center gap-12 lg:gap-20">
         {/* 1️⃣ Logo Section */}
-        <div className="flex flex-col items-center justify-center text-center w-full mb-8 sm:mb-0">
+        <div className="flex flex-col items-center text-center w-full sm:w-auto">
           <img
             src={logo}
             alt="The White Hart Logo"
