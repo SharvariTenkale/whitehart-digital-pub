@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import logo from "../assets/logo.png";
 
 const Footer = () => {
   return (
@@ -7,7 +8,7 @@ const Footer = () => {
         {/* 1️⃣ Logo Section */}
         <div className="flex flex-col items-center justify-center text-center w-full mb-8 sm:mb-0">
           <img
-            src="/src/assets/logo.png"
+            src={logo}
             alt="The White Hart Logo"
             className="h-12 w-12 sm:h-14 sm:w-14 object-contain mb-2"
           />
