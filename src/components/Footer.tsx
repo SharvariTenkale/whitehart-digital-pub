@@ -20,8 +20,9 @@ const Footer = () => {
         {/* 2️⃣ Contact Section */}
         <div id="contact">
           <h3 className="text-white font-semibold text-lg mb-3">Contact</h3>
-          <p className="text-sm mb-1 text-gray-300">123-456-7890</p>
-          <p className="text-sm mb-4 text-gray-300">info@whitehart.com</p>
+          <p className="text-sm mb-1 text-gray-300">+918421840407</p>
+          <p className="text-sm mb-1 text-gray-300">+919156499439</p>
+          <p className="text-sm mb-4 text-gray-300">thewhitehaart@gmail.com</p>
 
           <h3 className="text-white font-semibold text-lg mb-2">
             Stay Connected
